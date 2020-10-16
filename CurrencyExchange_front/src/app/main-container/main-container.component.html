@@ -1,0 +1,18 @@
+<body>
+<div fxLayoutAlign='center'>
+  <h1>Exchange rates</h1>
+  </div>
+  <div>
+    <mat-tab-group>
+      <mat-tab label="Current rates">
+        <app-rates [currentRates]="rates"></app-rates>
+        </mat-tab>
+      <mat-tab label="Rates history">
+        <app-history (selectedCurrency)="fetchHistoryByCurrency($event)" [currencyCodes]="currencies" [currentRateHistory]="history"></app-history>
+        </mat-tab>
+      <mat-tab label="Currency calculator">
+       <app-calculator (calculate)="fetchCalculatedRate($event)" [currencyCodes]="currencies" [calculatedRate]="calculatedRate"></app-calculator>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</body>
